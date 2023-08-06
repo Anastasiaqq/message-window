@@ -1,0 +1,172 @@
+:root {
+    --bg-color: #fff;
+    --head-color: #a1eac1;
+    --board-color: #d4f4e2;
+    --my-msg-color: #13005c;
+    --their-msg-color: #079cf8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    overflow: hidden;
+}
+.win {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.win__chat {
+    height: 60px;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--head-color);
+    box-sizing: border-box;
+}
+.win__name{
+    font-size: 20px;
+    text-transform: capitalize;
+    background: transparent;
+}
+.typing {
+    font-size: 15px;
+    background: transparent;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: inherit;
+}
+.typing:nth-of-type(0){
+    background: transparent;
+}
+.dot {
+    animation: type 1s infinite;
+    display: inline-block;
+    background-color: #000;
+    height: 1.5px;
+    margin: 7px 2.5px 0;
+    width: 1.5px;
+}
+.dot:nth-of-type(3) {
+    animation-delay: 0.2s;
+  }
+  
+  .dot:nth-of-type(4) {
+    animation-delay: 0.3s;
+  }
+@keyframes type {
+    0% { opacity:0 }
+    100% { opacity: 1; }
+  }
+.board {
+    background-color: var(--board-color);
+    height: 82vh;
+    width: 90%;
+
+}
+.board__wrapper {
+    background: transparent;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    height: 100%;
+    flex-direction: column-reverse;
+}
+.message {
+    width: fit-content;
+    min-width: 300px;
+    max-width: 700px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+.message__author {
+    font-weight: bold;
+}
+.message__date {
+    font-size: 9px;
+    text-align: end;
+}
+.ms {
+    pointer-events: none;
+}
+.ms:not(:last-child) {
+    margin-bottom: 6px;
+}
+.mine {
+    background-color: var(--my-msg-color);
+    align-self: flex-end;
+    color: var(--bg-color)
+}
+.mine .message__date {
+    color:#c8c5c5
+}
+.theirs {
+    align-self: flex-start;
+    background-color: var(--their-msg-color);
+}
+.theirs .message__date {
+    color:#000
+}
+.message__liked {
+    position: absolute;
+    bottom: -4px;
+    right: -7px;
+    color: red;
+    background: #fff;
+    padding: 0 7px;
+    border-radius: 27%;
+    box-shadow: 2px 2px 3px gray;
+}
+.my-input {
+    width: 100%;
+    height: 40px;
+    position:fixed;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.my-input__input {
+    background-color: #fff;
+    border: 1px solid #c8c5c5;
+    border-radius: 5px;
+    width: 80%;
+    height: 100%;
+    resize: none;
+    display: block;
+    margin-right: 2%;
+    font-size: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.my-input__input:focus {
+    outline: none;
+}
+.my-input__send {
+    text-transform: uppercase;
+    background: var(--their-msg-color);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    padding: 0px 19px;
+    font-size: 17px;
+}
+.my-input__send:focus {
+    border: none;
+    outline: none;
+}
